@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #eef2f1;
+}
+
+header {
+  background-color: #fff;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.logo-section {
+  margin-left: 15px;
+}
+.search-bar {
+  width: 40%;
+}
+
+.section-video-icon {
+  width: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-right: 40px;
+}
+.user-profile {
+  width: 15%;
+  display: flex;
+  align-items: center;
+}
+.header-icons-section {
+  width: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 15px;
+}
+
+.header-icon i {
+  color: #9c9fa6;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.video-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #47a0d9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-icon i {
+  color: #fff;
+}
+
+.profile-image img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
