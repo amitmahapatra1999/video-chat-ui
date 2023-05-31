@@ -53,6 +53,7 @@
     </header>
     <main>
       <!-- sidebar -->
+
       <section id="navbar">
         <div class="user-info">
           <div class="user-details">
@@ -178,7 +179,11 @@
         <div class="card">
           <div class="card-header py-3">
             <div>
-              <button class="btn header-btn record-btn">
+              <button
+                class="btn header-btn record-btn"
+                id="startBtn"
+                onclick="openCam()"
+              >
                 <img src="assets/images/record-btn.png" alt="" />
                 <span style="color: #fe0403">Start recording</span>
               </button>
@@ -201,6 +206,7 @@
             <div class="row">
               <div class="col-6">
                 <div class="window window-large">
+                  <video id="videoCam" height="99%" width="99%"></video>
                   <div class="image-wrapper" style="background-color: #d6f7ef">
                     <img src="assets/images/user.jpg" alt="" />
                   </div>
@@ -211,6 +217,7 @@
                 <div class="row">
                   <div class="col-6 mb-3">
                     <div
+                      id="video-section"
                       class="window window-small"
                       style="background-color: #edf8ff"
                     >
@@ -270,6 +277,12 @@
             </div>
           </div>
         </div>
+        <div class="footer py-3">
+          <div><h6>Copyright © 2023. All Rights Reserved</h6></div>
+          <div>
+            <i class="fa-solid fa-heart text-error"></i>
+          </div>
+        </div>
       </section>
       <!-- content -->
     </main>
@@ -304,6 +317,33 @@
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"
     ></script>
+    <script>
+      function openCam() {
+        let All_mediaDevices = navigator.mediaDevices;
+        if (!All_mediaDevices || !All_mediaDevices.getUserMedia) {
+          console.log('getUserMedia() not supported.');
+          return;
+        }
+        All_mediaDevices.getUserMedia({
+          audio: true,
+          video: true,
+        })
+          .then(function (vidStream) {
+            var video = document.getElementById('videoCam');
+            if ('srcObject' in video) {
+              video.srcObject = vidStream;
+            } else {
+              video.src = window.URL.createObjectURL(vidStream);
+            }
+            video.onloadedmetadata = function (e) {
+              video.play();
+            };
+          })
+          .catch(function (e) {
+            console.log(e.name + ': ' + e.message);
+          });
+      }
+    </script>
     <script src="assets/js/main.js"></script>
   </body>
 </html>

@@ -158,7 +158,8 @@ main {
 }
 
 .main-container {
-  width: 79%;
+  width: 80%;
+  position: relative;
 }
 
 .top-row {
@@ -299,6 +300,7 @@ main {
   height: 417px;
   background-color: #eafffa;
   flex-direction: column;
+  position: relative;
 }
 
 .window-small {
@@ -319,6 +321,12 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: absolute;
+  z-index: 1;
+}
+.image-wrapper h5 {
+  position: absolute;
+  z-index: 1;
 }
 
 .image-wrapper img {
@@ -331,8 +339,26 @@ main {
   align-items: center;
   justify-content: center;
 }
-
+#videoCam {
+  border-radius: 5px;
+  position: absolute;
+  z-index: 2;
+}
 .modal-image img {
   width: 750px;
   height: 500px;
+}
+
+/* #video {
+  display: none;
+} */
+
+.footer {
+  width: 95%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0;
 }
