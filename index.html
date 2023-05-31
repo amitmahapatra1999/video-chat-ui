@@ -69,19 +69,13 @@
         <div class="nav-list">
           <button
             class="nav-item active"
-            type="button"
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
+            onclick="dashboard()"
+            id="dashboard-btn"
           >
             <h5 class="mb-0">Dashboard</h5>
             <i class="fa-solid fa-house"></i>
           </button>
-          <button
-            class="nav-item"
-            type="button"
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
-          >
+          <button class="nav-item" onclick="joinCall()" id="joincall-btn">
             <h5 class="mb-0">Join call</h5>
             <i class="fa-solid fa-phone-volume"></i>
           </button>
@@ -176,7 +170,10 @@
             <div class="bg-circle-2"></div>
           </div>
         </div>
-        <div class="card">
+        <div class="card d-block" id="logo-card">
+          <img src="assets/images/logo.jpg" width="100%" alt="" />
+        </div>
+        <div class="card d-none" id="main-card">
           <div class="card-header py-3">
             <div>
               <button
@@ -206,7 +203,7 @@
             <div class="row">
               <div class="col-6">
                 <div class="window window-large">
-                  <video id="videoCam" height="500px" width="520xp"></video>
+                  <video id="videoCam" height="72%" width="75%"></video>
                   <div class="image-wrapper" style="background-color: #d6f7ef">
                     <img src="assets/images/user.jpg" alt="" />
                   </div>
@@ -317,33 +314,7 @@
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"
     ></script>
-    <script>
-      function openCam() {
-        let All_mediaDevices = navigator.mediaDevices;
-        if (!All_mediaDevices || !All_mediaDevices.getUserMedia) {
-          console.log('getUserMedia() not supported.');
-          return;
-        }
-        All_mediaDevices.getUserMedia({
-          audio: true,
-          video: true,
-        })
-          .then(function (vidStream) {
-            var video = document.getElementById('videoCam');
-            if ('srcObject' in video) {
-              video.srcObject = vidStream;
-            } else {
-              video.src = window.URL.createObjectURL(vidStream);
-            }
-            video.onloadedmetadata = function (e) {
-              video.play();
-            };
-          })
-          .catch(function (e) {
-            console.log(e.name + ': ' + e.message);
-          });
-      }
-    </script>
+
     <script src="assets/js/main.js"></script>
   </body>
 </html>
