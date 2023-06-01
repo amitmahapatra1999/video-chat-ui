@@ -48,4 +48,5 @@ function joinCall() {
   mainCard.classList.remove('d-none');
   dashboardBtn.classList.remove('active');
   joincallBtn.classList.add('active');
+  openCam();
 }
