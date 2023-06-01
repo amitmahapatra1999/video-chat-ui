@@ -18,8 +18,14 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-
     <link rel="stylesheet" href="assets/css/main.css" />
+    <link
+      rel="stylesheet"
+      href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
+    />
+    <link rel="stylesheet" href="/resources/demos/style.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
   </head>
   <body>
     <!-- header -->
@@ -178,12 +184,17 @@
             <div class="bg-circle-1"></div>
             <div class="bg-circle-2"></div>
           </div>
-          <div class="btn-main btn-schedule">
+          <button
+            class="btn-main btn-schedule"
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#calenderModal"
+          >
             <img src="assets/images/schedule-icon.png" alt="connect-icon" />
             Schedule Meeting
             <div class="bg-circle-1"></div>
             <div class="bg-circle-2"></div>
-          </div>
+          </button>
         </div>
         <div class="card d-block" id="logo-card">
           <img src="assets/images/logo.jpg" width="100%" alt="" />
@@ -298,7 +309,7 @@
       </section>
       <!-- content -->
     </main>
-    <!-- modal -->
+    <!-- image modal -->
     <div
       class="modal fade"
       id="exampleModal"
@@ -324,12 +335,54 @@
         </div>
       </div>
     </div>
+    <!-- event calender model -->
+    <div
+      class="modal fade"
+      id="calenderModal"
+      tabindex="-1"
+      aria-labelledby="calenderModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Select Date</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div
+            class="modal-body d-flex align-items-center justify-content-center"
+          >
+            <div id="datepicker"></div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- script -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"
     ></script>
-
+    <script>
+      $(function () {
+        $('#datepicker').datepicker();
+      });
+    </script>
     <script src="assets/js/main.js"></script>
   </body>
 </html>
